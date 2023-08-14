@@ -14,7 +14,11 @@ import com.madatrans.repository.ClientDAO;
 public class DatabaseConnection {
     @Bean
     public Connection getDatabaseConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:postgresql://localhost/madatrans", "postgres", "12345678");
+        String dbUrl = ManualEnv.DB_URL;
+        String dbUsername = ManualEnv.DB_USERNAME;
+        String dbPassword = ManualEnv.DB_PASSWORD;
+
+        return DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
     }
 
     @Bean
