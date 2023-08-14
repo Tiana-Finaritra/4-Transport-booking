@@ -1,4 +1,4 @@
-package com.madatrans.madatrans.model;
+package com.madatrans.madatrans.entity;
 
 import java.sql.Timestamp;
 
@@ -14,7 +14,7 @@ import lombok.ToString;
 public  class Voyage {
     private int id;
     private String destination;
-    private Timestamp departure_date;
-    private int available_seats;
+    private Timestamp departureDate;
+    private int availableSeats;
     private float fare;
 }

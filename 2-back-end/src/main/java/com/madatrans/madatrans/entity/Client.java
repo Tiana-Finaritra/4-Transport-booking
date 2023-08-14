@@ -1,4 +1,4 @@
-package com.madatrans.madatrans.model;
+package com.madatrans.madatrans.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

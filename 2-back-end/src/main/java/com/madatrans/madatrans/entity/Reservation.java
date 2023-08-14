@@ -1,4 +1,4 @@
-package com.madatrans.madatrans.model;
+package com.madatrans.madatrans.entity;
 
 import java.sql.Timestamp;
 
@@ -14,6 +14,6 @@ import lombok.ToString;
 public class Reservation  {
     private int id;
     private Timestamp reservation_date;
-    private int client_id;
-    private int voyage_id;
+    private int clientId;
+    private int voyageId;
 }
