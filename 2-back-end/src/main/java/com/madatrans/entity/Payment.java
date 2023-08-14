@@ -1,4 +1,4 @@
-package com.madatrans.madatrans.entity;
+package com.madatrans.entity;
 
 import java.sql.Timestamp;
 
@@ -13,8 +13,8 @@ import lombok.ToString;
 @ToString
 public class Payment {
     private int id;
-    private int reservation_id;
-    private Timestamp payment_date;
+    private int reservationId;
+    private Timestamp paymentDate;
     private float amount;
-    private String payment_status;
+    private String paymentStatus;
 }

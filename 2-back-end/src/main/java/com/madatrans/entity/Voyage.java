@@ -1,4 +1,4 @@
-package com.madatrans.madatrans.entity;
+package com.madatrans.entity;
 
 import java.sql.Timestamp;
 

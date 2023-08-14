@@ -1,4 +1,4 @@
-package com.madatrans.madatrans.controller;
+package com.madatrans.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

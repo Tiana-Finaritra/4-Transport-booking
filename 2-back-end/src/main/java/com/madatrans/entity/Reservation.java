@@ -1,4 +1,4 @@
-package com.madatrans.madatrans.entity;
+package com.madatrans.entity;
 
 import java.sql.Timestamp;
 
@@ -13,7 +13,7 @@ import lombok.ToString;
 @ToString
 public class Reservation  {
     private int id;
-    private Timestamp reservation_date;
+    private Timestamp reservationDate;
     private int clientId;
     private int voyageId;
 }
