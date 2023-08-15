@@ -1,0 +1,209 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "MadaTrans API",
+      "description": "Tiana Finaritra RANDRIANARISOA H1 STD22023",
+      "version": "1.0.0"
+    },
+    "paths": {
+      "/clients": {
+        "post": {
+          "summary": "Ajouter un client",
+          "operationId": "addClient",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Client ajouté avec succès",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Client"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Erreur interne du serveur"
+            }
+          }
+        },
+        "get": {
+          "summary": "Récupérer tous les clients",
+          "operationId": "getAllClients",
+          "responses": {
+            "200": {
+              "description": "Liste des clients",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Client"
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Erreur interne du serveur"
+            }
+          }
+        }
+      },
+      "/clients/{clientId}": {
+        "get": {
+          "summary": "Récupérer un client par ID",
+          "operationId": "getClientById",
+          "parameters": [
+            {
+              "name": "clientId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              },
+              "description": "ID du client"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Client trouvé",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Client"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Client non trouvé"
+            },
+            "500": {
+              "description": "Erreur interne du serveur"
+            }
+          }
+        },
+        "put": {
+          "summary": "Mettre à jour un client par ID",
+          "operationId": "updateClient",
+          "parameters": [
+            {
+              "name": "clientId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              },
+              "description": "ID du client"
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Client mis à jour avec succès",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Client"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Client non trouvé"
+            },
+            "500": {
+              "description": "Erreur interne du serveur"
+            }
+          }
+        },
+        "delete": {
+          "summary": "Supprimer un client par ID",
+          "operationId": "deleteClient",
+          "parameters": [
+            {
+              "name": "clientId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              },
+              "description": "ID du client"
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Client supprimé avec succès"
+            },
+            "404": {
+              "description": "Client non trouvé"
+            },
+            "500": {
+              "description": "Erreur interne du serveur"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Client": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            }
+          }
+        },
+        "ClientInput": {
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+  
