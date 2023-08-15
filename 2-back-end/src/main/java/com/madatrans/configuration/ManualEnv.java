@@ -1,11 +1,12 @@
-/*
- * A noter que cet projet a été conçu avec vsCode
- * donc j'ai pris la précaution d'eviter l'incompatibilité
- * de nos outils (variable de l' environnement) en faisant comme ça:
+/* STD22023
+ * PLEASE NOTE THAT:
+ * this project was designed with vsCode
+ * so I took the precaution of avoiding incompatibility
+ * of our tools (environment variable) by doing the following:
  * 
  * ---------------------
- * Veilliez modifier ces information de connection
- * conevenablement à votre base be donnée
+ * Make sure you modify this connection information
+ * to your database
  * ---------------------
  */
 
