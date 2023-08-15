@@ -11,8 +11,9 @@
  */
 
 package com.madatrans.configuration;
+
 public class ManualEnv {
-    public static String DB_URL ="jdbc:postgresql://localhost/madatrans" ;
+    public static String DB_URL = "jdbc:postgresql://localhost/madatrans";
     public static String DB_USERNAME = "postgres";
-    public static String DB_PASSWORD="12345678";
+    public static String DB_PASSWORD = "12345678";
 }

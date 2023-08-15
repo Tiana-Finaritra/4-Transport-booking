@@ -74,7 +74,7 @@ public class ClientDAO {
         }
     }
 
-    // mise à jour
+    // updating
     public void update(Client updatedClient) throws SQLException {
         String sql = "UPDATE client SET first_name = ?, last_name = ?, email = ?, phone = ? WHERE id = ?";
 

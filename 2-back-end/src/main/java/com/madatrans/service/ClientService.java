@@ -33,7 +33,7 @@ public class ClientService {
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
-    } 
+    }
 
     public Client getById(int clientId) {
         try {
@@ -43,9 +43,28 @@ public class ClientService {
         }
     }
 
-    public void update(Client updatedClient) {
+    public Client update(int clientId, Client updatedClient) {
         try {
-            this.clientDAO.update(updatedClient);
+            // Récupérer le client existant
+            Client existingClient = this.clientDAO.getById(clientId);
+
+            // Mettre à jour les champs si le champ correspondant n'est pas null
+            if (updatedClient.getFirstName() != null) {
+                existingClient.setFirstName(updatedClient.getFirstName());
+            }
+            if (updatedClient.getLastName() != null) {
+                existingClient.setLastName(updatedClient.getLastName());
+            }
+            if (updatedClient.getEmail() != null) {
+                existingClient.setEmail(updatedClient.getEmail());
+            }
+            if (updatedClient.getPhone() != null) {
+                existingClient.setPhone(updatedClient.getPhone());
+            }
+
+            this.clientDAO.update(existingClient);
+
+            return existingClient;
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
@@ -58,5 +77,6 @@ public class ClientService {
             throw new RuntimeException(e.getMessage());
         }
     }
+    
 
 }

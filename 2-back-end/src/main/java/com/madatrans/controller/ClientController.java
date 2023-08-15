@@ -4,9 +4,9 @@ import com.madatrans.repository.ClientDAO;
 import com.madatrans.service.ClientService;
 import com.madatrans.entity.Client;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
-// import org.springframework.http.HttpStatus;
-// import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/clients")
@@ -23,11 +25,9 @@ public class ClientController {
     private ClientService clientService;
 
     // Constructeur pour injecter manuellement ClientDAO
-   
     public ClientController(ClientDAO clientDAO, ClientService clientService) {
         this.clientService = clientService;
     }
-
 
     @PostMapping
     public Client addClient(@RequestBody Client client) {
@@ -45,14 +45,29 @@ public class ClientController {
     }
 
     @PutMapping("/{clientId}")
-    public void updateClient(@PathVariable int clientId, @RequestBody Client updatedClient) {
-        updatedClient.setId(clientId);
-        clientService.update(updatedClient);
+    public ResponseEntity<Client> updateClient(@PathVariable int clientId, @RequestBody Client updatedClient) {
+        try {
+            Client updated = clientService.update(clientId, updatedClient);
+            return ResponseEntity.ok(updated);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     @DeleteMapping("/{clientId}")
-    public void deleteClient(@PathVariable int clientId) {
-        clientService.delete(clientId);
+    public ResponseEntity<Map<String, String>> deleteClient(@PathVariable int clientId) {
+        try {
+            clientService.delete(clientId);
+
+            Map<String, String> response = new HashMap<>();
+            response.put("success", "Client " + clientId + " deleted successfully.");
+
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            Map<String, String> response = new HashMap<>();
+            response.put("error", e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
     }
-    
+
 }
