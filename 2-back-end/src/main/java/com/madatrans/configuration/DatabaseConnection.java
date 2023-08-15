@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.madatrans.repository.ClientDAO;
+import com.madatrans.repository.ReservationDAO;
 import com.madatrans.repository.VoyageDAO;
 
 @Configuration
@@ -29,5 +30,10 @@ public class DatabaseConnection {
     @Bean
     public VoyageDAO voyageDAO(Connection connection) {
         return new VoyageDAO(connection);
+    }
+
+    @Bean
+    public ReservationDAO reservationDAO(Connection connection) {
+        return new ReservationDAO(connection);
     }
 }
