@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import com.madatrans.repository.ClientDAO;
 import com.madatrans.repository.ReservationDAO;
 import com.madatrans.repository.VoyageDAO;
+import com.madatrans.repository.PaymentDAO;
 
 @Configuration
 public class DatabaseConnection {
@@ -35,5 +36,10 @@ public class DatabaseConnection {
     @Bean
     public ReservationDAO reservationDAO(Connection connection) {
         return new ReservationDAO(connection);
+    }
+
+    @Bean
+    public PaymentDAO paymentDAO(Connection connection) {
+        return new PaymentDAO(connection);
     }
 }
