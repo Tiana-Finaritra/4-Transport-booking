@@ -11,7 +11,7 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @ToString
-public  class Voyage {
+public class Voyage {
     private int id;
     private String destination;
     private Timestamp departureDate;

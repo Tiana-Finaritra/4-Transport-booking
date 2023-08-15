@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-// import com.madatrans.controller.ClientController;
 import com.madatrans.repository.ClientDAO;
+import com.madatrans.repository.VoyageDAO;
 
 @Configuration
 public class DatabaseConnection {
@@ -24,5 +24,10 @@ public class DatabaseConnection {
     @Bean
     public ClientDAO clientDAO(Connection connection) {
         return new ClientDAO(connection);
+    }
+
+    @Bean
+    public VoyageDAO voyageDAO(Connection connection) {
+        return new VoyageDAO(connection);
     }
 }
