@@ -69,7 +69,7 @@ public class ClientDAO {
                             result.getString("email"),
                             result.getString("phone"));
                 }
-                return null; // Aucun client trouvé avec cet ID
+                return null; 
             }
         }
     }

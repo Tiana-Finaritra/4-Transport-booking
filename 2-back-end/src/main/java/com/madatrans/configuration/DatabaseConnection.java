@@ -30,15 +30,6 @@ public class DatabaseConnection {
         return DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
     }
 
-    // @Bean
-    // public Connection getDatabaseConnection() throws SQLException {
-    // String dbUrl = ManualEnv.DB_URL;
-    // String dbUsername = ManualEnv.DB_USERNAME;
-    // String dbPassword = ManualEnv.DB_PASSWORD;
-
-    // return DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
-    // }
-
     @Bean
     public ClientDAO clientDAO(Connection connection) {
         return new ClientDAO(connection);

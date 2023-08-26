@@ -1,6 +1,5 @@
 package com.madatrans.controller;
 
-import com.madatrans.repository.ClientDAO;
 import com.madatrans.service.ClientService;
 import com.madatrans.entity.Client;
 
@@ -24,8 +23,8 @@ import java.util.Map;
 public class ClientController {
     private ClientService clientService;
 
-    // Constructeur pour injecter manuellement ClientDAO
-    public ClientController(ClientDAO clientDAO, ClientService clientService) {
+    // Constructeur pour injecter manuellement ClientService
+    public ClientController(ClientService clientService) {
         this.clientService = clientService;
     }
 
