@@ -1,0 +1,565 @@
+openapi: 3.0.0
+servers:
+  - url: "http://localhost:8080"
+info:
+  title: MadaTrans API
+  description: Tiana Finaritra RANDRIANARISOA H1 STD22023
+  version: 1.0.0
+tags:
+  - name: clients
+    description: Operations related to clients
+  - name: payments
+    description: Operations related to payments
+  - name: reservations
+    description: Operations related to reservations
+  - name: voyages
+    description: Operations related to voyages
+paths:
+  /clients:
+    post:
+      summary: Add a client
+      operationId: addClient
+      tags:
+        - clients
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ClientInput"
+      responses:
+        "201":
+          description: Client added successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Client"
+        "500":
+          description: Internal server error
+    get:
+      summary: Get all clients
+      operationId: getAllClients
+      tags:
+        - clients
+      responses:
+        "200":
+          description: List of clients
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Client"
+        "500":
+          description: Internal server error
+  "/clients/{clientId}":
+    get:
+      summary: Get a client by ID
+      operationId: getClientById
+      tags:
+        - clients
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Client ID
+      responses:
+        "200":
+          description: Client found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Client"
+        "404":
+          description: Client not found
+        "500":
+          description: Internal server error
+    put:
+      summary: Update a client by ID
+      operationId: updateClient
+      tags:
+        - clients
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Client ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ClientInput"
+      responses:
+        "200":
+          description: Client updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Client"
+        "404":
+          description: Client not found
+        "500":
+          description: Internal server error
+    delete:
+      summary: Delete a client by ID
+      operationId: deleteClient
+      tags:
+        - clients
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Client ID
+      responses:
+        "204":
+          description: Client deleted successfully
+        "404":
+          description: Client not found
+        "500":
+          description: Internal server error
+
+  /payments:
+    post:
+      summary: Add a payment
+      operationId: addPayment
+      tags:
+        - payments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PaymentInput"
+      responses:
+        "201":
+          description: Payment added successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Payment"
+        "500":
+          description: Internal server error
+    get:
+      summary: Get all payments
+      operationId: getAllPayments
+      tags:
+        - payments
+      responses:
+        "200":
+          description: List of payments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Payment"
+        "500":
+          description: Internal server error
+
+  "/payments/{paymentId}":
+    get:
+      summary: Get a payment by ID
+      operationId: getPaymentById
+      tags:
+        - payments
+      parameters:
+        - name: paymentId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Payment ID
+      responses:
+        "200":
+          description: Payment found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Payment"
+        "404":
+          description: Payment not found
+        "500":
+          description: Internal server error
+    put:
+      summary: Update a payment by ID
+      operationId: updatePayment
+      tags:
+        - payments
+      parameters:
+        - name: paymentId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Payment ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PaymentInput"
+      responses:
+        "200":
+          description: Payment updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Payment"
+        "404":
+          description: Payment not found
+        "500":
+          description: Internal server error
+    delete:
+      summary: Delete a payment by ID
+      operationId: deletePayment
+      tags:
+        - payments
+      parameters:
+        - name: paymentId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Payment ID
+      responses:
+        "204":
+          description: Payment deleted successfully
+        "404":
+          description: Payment not found
+        "500":
+          description: Internal server error
+
+  /reservations:
+    post:
+      summary: Add a reservation
+      operationId: addReservation
+      tags:
+        - reservations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReservationInput"
+      responses:
+        "201":
+          description: Reservation added successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Reservation"
+        "500":
+          description: Internal server error
+    get:
+      summary: Get all reservations
+      operationId: getAllReservations
+      tags:
+        - reservations
+      responses:
+        "200":
+          description: List of reservations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Reservation"
+        "500":
+          description: Internal server error
+
+  "/reservations/{reservationId}":
+    get:
+      summary: Get a reservation by ID
+      operationId: getReservationById
+      tags:
+        - reservations
+      parameters:
+        - name: reservationId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Reservation ID
+      responses:
+        "200":
+          description: Reservation found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Reservation"
+        "404":
+          description: Reservation not found
+        "500":
+          description: Internal server error
+    put:
+      summary: Update a reservation by ID
+      operationId: updateReservation
+      tags:
+        - reservations
+      parameters:
+        - name: reservationId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Reservation ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReservationInput"
+      responses:
+        "200":
+          description: Reservation updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Reservation"
+        "404":
+          description: Reservation not found
+        "500":
+          description: Internal server error
+    delete:
+      summary: Delete a reservation by ID
+      operationId: deleteReservation
+      tags:
+        - reservations
+      parameters:
+        - name: reservationId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Reservation ID
+      responses:
+        "204":
+          description: Reservation deleted successfully
+        "404":
+          description: Reservation not found
+        "500":
+          description: Internal server error
+
+  /voyages:
+    post:
+      summary: Add a voyage
+      operationId: addVoyage
+      tags:
+        - voyages
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VoyageInput"
+      responses:
+        "201":
+          description: Voyage added successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Voyage"
+        "500":
+          description: Internal server error
+    get:
+      summary: Get all voyages
+      operationId: getAllVoyages
+      tags:
+        - voyages
+      responses:
+        "200":
+          description: List of voyages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Voyage"
+        "500":
+          description: Internal server error
+
+  "/voyages/{voyageId}":
+    get:
+      summary: Get a voyage by ID
+      operationId: getVoyageById
+      tags:
+        - voyages
+      parameters:
+        - name: voyageId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Voyage ID
+      responses:
+        "200":
+          description: Voyage found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Voyage"
+        "404":
+          description: Voyage not found
+        "500":
+          description: Internal server error
+    put:
+      summary: Update a voyage by ID
+      operationId: updateVoyage
+      tags:
+        - voyages
+      parameters:
+        - name: voyageId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Voyage ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VoyageInput"
+      responses:
+        "200":
+          description: Voyage updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Voyage"
+        "404":
+          description: Voyage not found
+        "500":
+          description: Internal server error
+    delete:
+      summary: Delete a voyage by ID
+      operationId: deleteVoyage
+      tags:
+        - voyages
+      parameters:
+        - name: voyageId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Voyage ID
+      responses:
+        "204":
+          description: Voyage deleted successfully
+        "404":
+          description: Voyage not found
+        "500":
+          description: Internal server error
+
+components:
+  schemas:
+    Client:
+      type: object
+      properties:
+        id:
+          type: integer
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+    ClientInput:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+
+    Payment:
+      type: object
+      properties:
+        id:
+          type: integer
+        reservationId:
+          type: integer
+        paymentDate:
+          type: string
+          format: date-time
+        amount:
+          type: number
+        paymentStatus:
+          type: string
+
+    PaymentInput:
+      type: object
+      properties:
+        reservationId:
+          type: integer
+        paymentDate:
+          type: string
+          format: date-time
+        amount:
+          type: number
+        paymentStatus:
+          type: string
+
+    Reservation:
+      type: object
+      properties:
+        id:
+          type: integer
+        reservationDate:
+          type: string
+          format: date-time
+        clientId:
+          type: integer
+        voyageId:
+          type: integer
+
+    ReservationInput:
+      type: object
+      properties:
+        reservationDate:
+          type: string
+          format: date-time
+        clientId:
+          type: integer
+        voyageId:
+          type: integer
+
+    Voyage:
+      type: object
+      properties:
+        id:
+          type: integer
+        destination:
+          type: string
+        departureDate:
+          type: string
+          format: date-time
+        availableSeats:
+          type: integer
+        fare:
+          type: number
+    VoyageInput:
+      type: object
+      properties:
+        destination:
+          type: string
+        departureDate:
+          type: string
+          format: date-time
+        availableSeats:
+          type: integer
+        fare:
+          type: number
