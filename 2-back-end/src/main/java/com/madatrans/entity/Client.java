@@ -10,8 +10,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public  class Client {
-     // @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String firstName;
     private String lastName;
