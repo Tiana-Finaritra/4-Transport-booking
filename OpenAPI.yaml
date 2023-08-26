@@ -3,7 +3,19 @@ servers:
   - url: "http://localhost:8080"
 info:
   title: MadaTrans API
-  description: Tiana Finaritra RANDRIANARISOA H1 STD22023
+  description: |
+    Tiana Finaritra RANDRIANARISOA H1 STD22023
+
+      ### MadaTrans is generally:
+
+    * final exam in prog2 L1
+    * Manage transport reservations
+    * Simple java back-end
+
+  license:
+    name: T-FinaritraR
+    url: https://web.facebook.com/mahery.stan
+
   version: 1.0.0
 tags:
   - name: clients
@@ -465,101 +477,136 @@ components:
       properties:
         id:
           type: integer
+          example: 1
         firstName:
           type: string
+          example: Tokimahery
         lastName:
           type: string
+          example: RAMAROZAKA
         email:
           type: string
+          example: hei.toky@gmail.com
         phone:
           type: string
+          example: +26134135624
     ClientInput:
       type: object
       properties:
         firstName:
           type: string
+          example: Tokimahery
         lastName:
           type: string
+          example: RAMAROZAKA
         email:
           type: string
+          example: hei.toky@gmail.com
         phone:
           type: string
+          example: +26134135624
 
     Payment:
       type: object
       properties:
         id:
           type: integer
+          example: 12
         reservationId:
           type: integer
+          example: 2
         paymentDate:
           type: string
           format: date-time
+          example:  2023-08-26T17:19:43.424Z
         amount:
           type: number
+          example: 40000
         paymentStatus:
           type: string
+          example: pending
 
     PaymentInput:
       type: object
       properties:
         reservationId:
           type: integer
+          example: 21
         paymentDate:
           type: string
           format: date-time
+          example: 2023-04-26T17:09:43.424Z
         amount:
           type: number
+          example: 60000
         paymentStatus:
           type: string
+          example: done
 
     Reservation:
       type: object
       properties:
         id:
           type: integer
+          example: 2
         reservationDate:
           type: string
           format: date-time
+          example:  2023-12-26T17:08:40.424Z
         clientId:
           type: integer
+          example: 1
         voyageId:
           type: integer
+          example: 5
 
     ReservationInput:
       type: object
+      example: 3
       properties:
         reservationDate:
           type: string
           format: date-time
+          example:  2024-01-26T17:05:13.424Z
         clientId:
           type: integer
+          example: 1
         voyageId:
           type: integer
+          example: 2
 
     Voyage:
       type: object
       properties:
         id:
           type: integer
+          example: 2
         destination:
           type: string
+          example : Majunga
         departureDate:
           type: string
           format: date-time
+          example: current_timestamp
         availableSeats:
           type: integer
+          example: 5
         fare:
           type: number
+          example: 23000
     VoyageInput:
       type: object
       properties:
         destination:
           type: string
+          example: Tamatave
         departureDate:
           type: string
           format: date-time
+          example: 2025-06-26T17:05:13.424Z
         availableSeats:
           type: integer
+          example: 6
         fare:
           type: number
+          example: 40000
