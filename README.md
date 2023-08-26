@@ -1,8 +1,15 @@
-# Transport Reservation Management Application
-![MadaTrans](0-public/MadaTrans.gif)
+# <p align="center"> MadaTrans</p>
 
-This application is designed to manage transport reservations for trips. 
-It allows customers to make reservations for various trips.
+<p align="center">
+  <img src="0-public/MadaTrans.gif" alt="MadaTrans">
+</p>
+
+## <p align="center"> Transport Reservation Management Application </p>
+
+<p align="center"> 
+    This application is designed to manage transport reservations for trips. 
+    It allows customers to make reservations for various trips.
+</p>
 
 ## Technologies Used
 
@@ -16,15 +23,15 @@ It allows customers to make reservations for various trips.
 1. Clone this repository to your machine.
 
 ```sh
-git clone https://github.com/YourName/your-project.git
-cd your-project
+https://github.com/Tiana-Finaritra/4-Transport-booking.git
+cd 4-Transport-booking
 ```
 
 ## Prerequisites
 
 - Java 17
 - Maven [OPTIONAL - Depending on the build tool you're using]
-- PostgreSQL
+- PostgreSQL    
 - JDBC DRIVER
 
 ## Above all:
@@ -33,3 +40,11 @@ cd your-project
 and generate dummy data in your local host.
 - If you're on vsCode like me: you'll find the manual launch point 
 in "2-back-end/src/main/java/MadatransApplication.java".
+
+## OpenAPI-Explorer:
+You can see directly the openApi of this project from [swagger UI](https://petstore.swagger.io/?url=https://gist.githubusercontent.com/Tiana-Finaritra/ea2f605bd57a27e27b17c4232ed45763/raw/05f8f2ff5679de8e97849b27a13492848756e49e/openAPI-MadaTrans.yaml)
+
+[Click here:](https://petstore.swagger.io/?url=https://gist.githubusercontent.com/Tiana-Finaritra/ea2f605bd57a27e27b17c4232ed45763/raw/05f8f2ff5679de8e97849b27a13492848756e49e/openAPI-MadaTrans.yaml)
+
+## Liscence:
+ Tiana-Finaritra
