@@ -11,6 +11,12 @@
     It allows customers to make reservations for various trips.
 </p>
 
+## MCD:
+
+<p align="center">
+  <img src="1-database/MCD.png" alt="MadaTrans">
+</p>
+
 ## Technologies Used
 
 - Back-End: Spring Boot, Java
