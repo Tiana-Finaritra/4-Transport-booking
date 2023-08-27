@@ -35,6 +35,7 @@ cd 4-Transport-booking
 - JDBC DRIVER
 
 ## Above all:
+- run the file in "1-database/rundb.sql" in your postgresql terminal to get appropriate database.
 - Customize connection information in "2-back-end/src/main/ressources/application.properties".
 - Run the rundb.sql file in the 1-database folder to implement the database schema 
 and generate dummy data in your local host.
